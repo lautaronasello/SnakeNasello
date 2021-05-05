@@ -1,12 +1,12 @@
 import { getInputDirection } from "./input.js";
 
-export const SNAKE_SPEED = 6;
+export var SNAKE_SPEED = 4;
 const snakeBody = [{ x: 11, y: 11 }];
 let newSegments = 0;
+let segments = newSegments;
 
 export function update() {
   addSegments();
-
   const inputDirection = getInputDirection();
   for (let i = snakeBody.length - 2; i >= 0; i--) {
     snakeBody[i + 1] = { ...snakeBody[i] };
@@ -28,6 +28,12 @@ export function draw(gameBoard) {
     snakeElement.classList.add("snake"); //add class "snake" to the div
     gameBoard.appendChild(snakeElement); //all of this is generated in the game-board(index.html)
   });
+  upSnake();
+}
+
+function upSnake() {
+  if (newSegments > segments) return (SNAKE_SPEED += 1 / 4);
+  console.log(SNAKE_SPEED);
 }
 
 export function expandSnake(amount) {
