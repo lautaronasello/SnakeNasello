@@ -15,7 +15,10 @@ const gameBoard = document.getElementById("game-board");
 
 function main(currentTime) {
   if (gameOver) {
-    return alert("Game Over");
+    if (confirm("Game Over. Jugar de vuelta?")) {
+      window.location = "/";
+    }
+    return;
   }
 
   window.requestAnimationFrame(main);
