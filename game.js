@@ -4,6 +4,7 @@ import {
   SNAKE_SPEED,
   getSnakeHead,
   snakeIntersection,
+  actualPoints,
 } from "./snake.js";
 
 import { update as updateFood, draw as drawFood } from "./food.js";
@@ -12,10 +13,11 @@ import { outsideGrid } from "./grid.js";
 let lastRenderTime = 0;
 let gameOver = false;
 const gameBoard = document.getElementById("game-board");
+const points = document.getElementById("actual-points");
 
 function main(currentTime) {
   if (gameOver) {
-    if (confirm("Game Over. Jugar de vuelta?")) {
+    if (confirm("Game Over. Jugar de vuelta? Puntaje: " + actualPoints)) {
       window.location = "/";
     }
     return;
@@ -42,6 +44,7 @@ function draw() {
   gameBoard.innerHTML = "";
   drawSnake(gameBoard);
   drawFood(gameBoard);
+  points.innerHTML = "points: " + actualPoints;
 }
 
 function checkDeath() {

@@ -4,6 +4,9 @@ export var SNAKE_SPEED = 4;
 const snakeBody = [{ x: 11, y: 11 }];
 let newSegments = 0;
 let segments = newSegments;
+let bestPoints = 0;
+export let actualPoints = 0;
+let lastPoints = actualPoints;
 
 export function update() {
   addSegments();
@@ -29,11 +32,21 @@ export function draw(gameBoard) {
     gameBoard.appendChild(snakeElement); //all of this is generated in the game-board(index.html)
   });
   upSnake();
+  upPoints();
 }
 
 function upSnake() {
-  if (newSegments > segments) return (SNAKE_SPEED += 1 / 4);
+  if (newSegments > segments) {
+    return (SNAKE_SPEED += 1 / 4);
+  }
+
   console.log(SNAKE_SPEED);
+}
+
+function upPoints() {
+  if (newSegments > segments) {
+    return (actualPoints += 50);
+  }
 }
 
 export function expandSnake(amount) {

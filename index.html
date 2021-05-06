@@ -18,6 +18,8 @@
 
       #game-board {
         background-color: #ccc;
+        margin-right: auto;
+        margin-left: auto;
         width: 100vmin;
         height: 100vmin;
         display: grid;
@@ -34,10 +36,32 @@
         background-color: hsl(50, 100%, 50%);
         border: 0.25vmin solid black;
       }
+
+      .points {
+        color: white;
+        /* margin-left: 5%; */
+      }
     </style>
     <script src="game.js" defer type="module"></script>
   </head>
   <body>
+    <div class="points">
+      <p>Points</p>
+      <ul>
+        <li id="actual-points"></li>
+        <li id="best-points"></li>
+        <li id="last-points"></li>
+      </ul>
+    </div>
     <div id="game-board"></div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.5.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.5.0/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
   </body>
 </html>
