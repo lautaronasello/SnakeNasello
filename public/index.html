@@ -9,17 +9,17 @@
       body {
         height: 100vh;
         width: 100vw;
+        margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0;
         background-color: black;
       }
 
       #game-board {
         background-color: #ccc;
         margin-right: auto;
-        margin-left: auto;
+        margin-left: 14%;
         width: 100vmin;
         height: 100vmin;
         display: grid;
@@ -39,19 +39,15 @@
 
       .points {
         color: white;
-        /* margin-left: 5%; */
+        margin-left: 10%;
       }
     </style>
     <script src="game.js" defer type="module"></script>
   </head>
   <body>
     <div class="points">
-      <p>Points</p>
-      <ul>
-        <li id="actual-points"></li>
-        <li id="best-points"></li>
-        <li id="last-points"></li>
-      </ul>
+      <h3>Points</h3>
+      <p id="actual-points"></p>
     </div>
     <div id="game-board"></div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->

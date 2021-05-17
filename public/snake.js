@@ -1,12 +1,10 @@
-import { getInputDirection } from "./input.js";
+import { getInputDirection } from './input.js';
 
 export var SNAKE_SPEED = 4;
 const snakeBody = [{ x: 11, y: 11 }];
 let newSegments = 0;
 let segments = newSegments;
-let bestPoints = 0;
 export let actualPoints = 0;
-let lastPoints = actualPoints;
 
 export function update() {
   addSegments();
@@ -25,10 +23,10 @@ export function getSnakeHead() {
 
 export function draw(gameBoard) {
   snakeBody.forEach((segment) => {
-    const snakeElement = document.createElement("div"); //generates a div in the grid
+    const snakeElement = document.createElement('div'); //generates a div in the grid
     snakeElement.style.gridRowStart = segment.y; //gives the ubication of the row to start to draw
     snakeElement.style.gridColumnStart = segment.x; //gives the ubication of the column to start to draw
-    snakeElement.classList.add("snake"); //add class "snake" to the div
+    snakeElement.classList.add('snake'); //add class "snake" to the div
     gameBoard.appendChild(snakeElement); //all of this is generated in the game-board(index.html)
   });
   upSnake();
@@ -37,7 +35,7 @@ export function draw(gameBoard) {
 
 function upSnake() {
   if (newSegments > segments) {
-    return (SNAKE_SPEED += 1 / 4);
+    return (SNAKE_SPEED += 1 / 5);
   }
 
   console.log(SNAKE_SPEED);
